@@ -4,11 +4,12 @@
 #define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
+int cycles = 0;
+int address = 0;
 
 void setup() {
   Serial.begin(9600);
   dht.begin(); // initialize the sensor
-  int cycles = 0;
 }
 
 void loop() {
@@ -38,8 +39,11 @@ void loop() {
     Serial.print(tempF);
     Serial.println("°F");
   }
-  cycles++;
-  if cycles == 10 (int i = 0; i < 255; i++) {
-      
+  if (cycles%100 == 0) {
+      EEPROM.write(address, tempF);
+      address++;
+      Serial.print(EEPROM.read(address));
     }
+  cycles++;
+  Serial.println(cycles);
 }
