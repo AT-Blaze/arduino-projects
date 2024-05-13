@@ -41,7 +41,7 @@
 #define FIX_BAND RADIO_BAND_FM
 
 /// The station that will be tuned by this sketch is 89.30 MHz.
-#define FIX_STATION 10330
+#define FIX_STATION 9010
 
 TEA5767 radio;    // Create an instance of Class for Si4703 Chip
 
